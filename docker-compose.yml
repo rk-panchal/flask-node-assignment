@@ -1,0 +1,18 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+    container_name: flask-backend-container
+    ports:
+      - "5000:5000"
+
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: express-frontend-container
+    ports:
+      - "4000:4000"
+    depends_on:
+      - backend
